@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers{{Namespace}}\{{name}};
+
+use App\Http\Controllers\Controller;
+use App\Services{{Namespace}}\{{name}}\{{name}}ServiceInterface;
+use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
+
+class {{name}}Controller extends Controller
+{
+    protected {{name}}ServiceInterface ${{nameCamel}}Service;
+
+    public function __construct({{name}}ServiceInterface ${{nameCamel}}Service)
+    {
+        $this->{{nameCamel}}Service = ${{nameCamel}}Service;
+    }
+
+    public function obterTodos{{name}}(): JsonResponse
+    {
+        $items = $this->{{nameCamel}}Service->obterTodos{{name}}();
+
+        if (empty($items)) {
+            return response()->json(
+                ['message' => 'Nenhum {{nameCamel}} encontrado.'],
+                Response::HTTP_NOT_FOUND
+            );
+        }
+
+        return response()->json(['data' => $items], Response::HTTP_OK);
+    }
+}

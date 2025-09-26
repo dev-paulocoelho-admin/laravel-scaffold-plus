@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models{{Namespace}};
+
+use Illuminate\Database\Eloquent\Model;
+
+class {{name}} extends Model
+{
+    protected $table = '{{table}}';
+    protected $primaryKey = 'id';
+    protected $fillable = [];
+    protected $casts = [];
+}

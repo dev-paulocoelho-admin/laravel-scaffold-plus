@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Services{{Namespace}}\{{name}};
+
+use App\Repositories{{Namespace}}\{{name}}\{{name}}RepositoryInterface;
+
+class {{name}}Service implements {{name}}ServiceInterface
+{
+    protected {{name}}RepositoryInterface ${{nameCamel}}Repository;
+
+    public function __construct({{name}}RepositoryInterface ${{nameCamel}}Repository)
+    {
+        $this->{{nameCamel}}Repository = ${{nameCamel}}Repository;
+    }
+
+    public function obterTodos{{name}}(): array
+    {
+        return $this->{{nameCamel}}Repository->obterTodos{{name}}();
+    }
+}

@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Repositories{{Namespace}}\{{name}};
+
+use App\Models{{Namespace}}\{{name}};
+
+class {{name}}Repository implements {{name}}RepositoryInterface
+{
+    protected {{name}} $model;
+
+    public function __construct({{name}} $model)
+    {
+        $this->model = $model;
+    }
+
+    public function obterTodos{{name}}(): array
+    {
+        return $this->model->newQuery()->get()->toArray();
+    }
+}

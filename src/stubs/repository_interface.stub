@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Repositories{{Namespace}}\{{name}};
+
+interface {{name}}RepositoryInterface
+{
+    /**
+     * Retorna todos os registros da entidade {{name}}.
+     *
+     * @return array
+     */
+    public function obterTodos{{name}}(): array;
+}

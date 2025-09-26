@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Providers{{Namespace}}\{{name}};
+
+use App\Repositories{{Namespace}}\{{name}}\{{name}}Repository;
+use App\Repositories{{Namespace}}\{{name}}\{{name}}RepositoryInterface;
+use App\Services{{Namespace}}\{{name}}\{{name}}Service;
+use App\Services{{Namespace}}\{{name}}\{{name}}ServiceInterface;
+use Illuminate\Support\ServiceProvider;
+
+class {{name}}ServiceProvider extends ServiceProvider
+{
+    public function register(): void
+    {
+        $this->app->bind({{name}}ServiceInterface::class, {{name}}Service::class);
+        $this->app->bind({{name}}RepositoryInterface::class, {{name}}Repository::class);
+    }
+
+    public function boot(): void
+    {
+        //
+    }
+}

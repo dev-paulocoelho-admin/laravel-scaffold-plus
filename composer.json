@@ -1,0 +1,27 @@
+{
+  "name": "paulocoelho/laravel-scaffold-plus",
+  "description": "Geração completa de estruturas Laravel: Model, Controller, Service, Repository, Provider, Requests e Policy com exemplos de uso.",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "PauloCoelho\\ScaffoldPlus\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "PauloSilva\\ScaffoldPlus\\ScaffoldServiceProvider"
+      ]
+    }
+  },
+  "require": {
+    "php": ">=8.4",
+    "illuminate/support": "^10.0",
+    "illuminate/console": "^10.0",
+    "illuminate/filesystem": "^10.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^10.0"
+  }
+}

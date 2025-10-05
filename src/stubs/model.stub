@@ -2,12 +2,43 @@
 
 namespace App\Models{{Namespace}};
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class {{name}} extends Model
 {
+    /** @use HasFactory<\Database\Factories\{{name}}Factory> */
+    use HasFactory;
+
+    /**
+     * A tabela associada à model.
+     *
+     * @var string
+     */
     protected $table = '{{table}}';
+
+    /**
+     * O nome da chave primária.
+     *
+     * @var string
+     */
     protected $primaryKey = 'id';
-    protected $fillable = [];
-    protected $casts = [];
+
+    /**
+     * Os campos que podem ser atribuídos em massa.
+     *
+     * @var array
+     */
+    protected $fillable = [
+
+    ];
+
+    /**
+     * Casts automáticos
+     *
+     * @var array
+     */
+    protected $casts = [
+
+    ];
 }

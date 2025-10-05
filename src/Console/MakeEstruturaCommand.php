@@ -12,6 +12,7 @@ class MakeEstruturaCommand extends Command
 {
     protected $signature = 'make:estrutura {name : Nome da entidade, ex: Produto ou Cadastro/Produto}';
     protected $description = 'Gera estrutura completa: Model, Migration, Requests, Controller, Service/Interface, Repository/Interface, Provider e Policy com exemplos de uso e DI.';
+
     protected Filesystem $files;
 
     public function __construct()

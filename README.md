@@ -79,6 +79,8 @@ Exemplo com submódulo:
 
 #### app/Policies/Cadastro/ProdutoPolicy.php
 
+### Não se esqueça de registar o ScaffoldServiceProvider no arquivo bootstrap/providers.php.
+
 ## 📂 Exemplo de Controller Gerado
 
 ```php
@@ -103,13 +105,6 @@ class ProdutoController extends Controller
     public function obterTodosProdutos(): JsonResponse
     {
         $produtos = $this->produtoService->obterTodosProdutos();
-
-        if (empty($produtos)) {
-            return response()->json(
-                ['message' => 'Nenhum produto encontrado.'],
-                Response::HTTP_NOT_FOUND
-            );
-        }
 
         return response()->json(
             ['data' => $produtos],

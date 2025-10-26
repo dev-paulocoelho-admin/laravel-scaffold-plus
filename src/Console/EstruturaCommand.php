@@ -8,11 +8,10 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
-class MakeEstruturaCommand extends Command
+class EstruturaCommand extends Command
 {
-    protected $signature = 'make:estrutura {name : Nome da entidade, ex: Produto ou Cadastro/Produto}';
-    protected $description = 'Gera estrutura completa: Model, Migration, Requests, Controller, Service/Interface, Repository/Interface, Provider e Policy com exemplos de uso e DI.';
-
+    protected string $signature = 'make:estrutura {name : Nome da entidade, ex: Produto ou Cadastro/Produto}';
+    protected string $description = 'Gera estrutura de desenvolvimento.';
     protected Filesystem $files;
 
     public function __construct()
@@ -45,22 +44,18 @@ class MakeEstruturaCommand extends Command
             '{{table}}' => Str::snake(Str::pluralStudly($entity)),
         ];
 
-        // --- 1) Model
         $modelPath = app_path("Models" . ($modulePath ? "/$modulePath/$entity.php" : "/$entity.php"));
         $this->createFromStub('model.stub', $modelPath, $replacements);
 
-        // --- 1.1) Factory
         $this->call('make:factory', [
             'name' => "{$entity}Factory",
             '--model' => ($moduleNamespace ? "App\\Models\\{$moduleNamespace}\\$entity" : "App\\Models\\$entity"),
         ]);
 
-        // --- 1.2) Seeder
         $this->call('make:seeder', [
             'name' => "{$entity}Seeder",
         ]);
 
-        // --- 2) Migration
         $migrationName = 'create_' . $replacements['{{table}}'] . '_table';
         $this->info("Criando migration: $migrationName");
         Log::info("Criando migration: $migrationName");
@@ -68,7 +63,6 @@ class MakeEstruturaCommand extends Command
         $this->info("Migration criada: $migrationName");
         Log::info("Migration criada: $migrationName");
 
-        // --- 3) Requests
         $reqBase = ($modulePath ? $modulePath . '/' : '') . $entity;
         foreach (["Store{$entity}Request", "Update{$entity}Request"] as $req) {
             $this->info("Criando Request: $req");
@@ -78,23 +72,43 @@ class MakeEstruturaCommand extends Command
             Log::info("Request criado: $req");
         }
 
-        // --- 4) Policy
-        $policyName = ($modulePath ? $modulePath . '/' : '') . "{$entity}Policy";
-        $modelForPolicy = $moduleNamespace ? "App\\Models\\$moduleNamespace\\$entity" : "App\\Models\\$entity";
-        $this->info("Criando Policy: $policyName");
-        Log::info("Criando Policy: $policyName");
-        $this->call('make:policy', ['name' => $policyName, '--model' => $modelForPolicy]);
-        $this->info("Policy criada: $policyName");
-        Log::info("Policy criada: $policyName");
+        $policyPath = app_path("Policies" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}Policy.php");
+        $this->createFromStub('policy.stub', $policyPath, $replacements);
 
-        // --- 5) Skeletons
         $filesToGenerate = [
-            'controller.stub' => app_path("Http/Controllers" . ($modulePath ? "/$modulePath/$entity/$entity" : "/$entity/$entity") . "Controller.php"),
-            'service_interface.stub' => app_path("Services" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}ServiceInterface.php"),
-            'service.stub' => app_path("Services" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}Service.php"),
-            'repository_interface.stub' => app_path("Repositories" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}RepositoryInterface.php"),
-            'repository.stub' => app_path("Repositories" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}Repository.php"),
-            'provider.stub' => app_path("Providers" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}ServiceProvider.php"),
+            'controller.stub' => app_path(
+                "Http/Controllers" .
+                ($modulePath ? "/$modulePath/$entity" : "/$entity") .
+                "/{$entity}Controller.php"
+            ),
+
+            'service_interface.stub' => app_path(
+                "Services" .
+                ($modulePath ? "/$modulePath/$entity" : "/$entity") .
+                "/{$entity}ServiceInterface.php"
+            ),
+            'service.stub' => app_path(
+                "Services" .
+                ($modulePath ? "/$modulePath/$entity" : "/$entity") .
+                "/{$entity}Service.php"
+            ),
+
+            'repository_interface.stub' => app_path(
+                "Repositories" .
+                ($modulePath ? "/$modulePath/$entity" : "/$entity") .
+                "/{$entity}RepositoryInterface.php"
+            ),
+            'repository.stub' => app_path(
+                "Repositories" .
+                ($modulePath ? "/$modulePath/$entity" : "/$entity") .
+                "/{$entity}Repository.php"
+            ),
+
+            'provider.stub' => app_path(
+                "Providers" .
+                ($modulePath ? "/$modulePath/$entity" : "/$entity") .
+                "/{$entity}ServiceProvider.php"
+            ),
         ];
 
         foreach ($filesToGenerate as $stub => $dest) {
@@ -123,7 +137,10 @@ class MakeEstruturaCommand extends Command
         $content = $this->files->get($stubPath);
         $content = str_replace(array_keys($replacements), array_values($replacements), $content);
 
-        if (!is_dir(dirname($destPath))) mkdir(dirname($destPath), 0755, true);
+        if (!is_dir(dirname($destPath))) {
+            mkdir(dirname($destPath), 0755, true);
+        }
+
         file_put_contents($destPath, $content);
 
         $this->info("$stubName criado: $destPath");

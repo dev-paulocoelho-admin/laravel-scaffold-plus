@@ -18,7 +18,7 @@ Ideal para acelerar estudos e projetos particulares.
 ## 📦 Instalação
 
 ```bash
-  composer require paulosilva/laravel-scaffold-plus
+  composer require ---
 ```
 
 ### O ServiceProvider será registrado automaticamente via Package Discovery do Laravel.

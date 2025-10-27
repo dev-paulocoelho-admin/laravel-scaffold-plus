@@ -6,8 +6,6 @@ interface {{name}}ServiceInterface
 {
     /**
      * Retorna todos os registros da entidade {{name}}.
-     *
-     * @return array
      */
-    public function obterTodos{{name}}(): array;
+    public function index(): array;
 }

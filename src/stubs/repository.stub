@@ -13,7 +13,7 @@ class {{name}}Repository implements {{name}}RepositoryInterface
         $this->model = $model;
     }
 
-    public function obterTodos{{name}}(): array
+    public function index(): array
     {
         return $this->model->newQuery()->get()->toArray();
     }

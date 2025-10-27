@@ -13,8 +13,8 @@ class {{name}}Service implements {{name}}ServiceInterface
         $this->{{nameCamel}}Repository = ${{nameCamel}}Repository;
     }
 
-    public function obterTodos{{name}}(): array
+    public function index(): array
     {
-        return $this->{{nameCamel}}Repository->obterTodos{{name}}();
+        return $this->{{nameCamel}}Repository->index();
     }
 }

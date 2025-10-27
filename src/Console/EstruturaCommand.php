@@ -79,7 +79,7 @@ class EstruturaCommand extends Command
         $this->info("Policy criada: {$entity}Policy");
 
         $filesToGenerate = [
-            'controller.stub' => app_path(
+            'controller_resource.stub' => app_path(
                 "Http/Controllers" .
                 ($modulePath ? "/$modulePath/$entity" : "/$entity") .
                 "/{$entity}Controller.php"

@@ -1,9 +1,9 @@
 # Laravel Scaffold Plus
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulocoelho/laravel-scaffold-plus)
-[![License](https://img.shields.io/github/license/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](LICENSE)
+[![Installs](https://img.shields.io/packagist/dt/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulocoelho/laravel-scaffold-plus/stats)
+[![License](https://img.shields.io/github/license/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](MIT)
 [![PHP Version](https://img.shields.io/packagist/php-v/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulocoelho/laravel-scaffold-plus)
-[![Versão/Tag](https://img.shields.io/github/v/tag/paulocoelho/laravel-scaffold-plus?style=flat-square)](https://github.com/paulocoelho/laravel-scaffold-plus/tags)
 
 ## 🚀 Laravel Scaffold Plus
 
@@ -101,9 +101,9 @@ class ProdutoController extends Controller
         $this->produtoService = $produtoService;
     }
 
-    public function obterTodosProdutos(): JsonResponse
+    public function obterTodos(): JsonResponse
     {
-        $produtos = $this->produtoService->obterTodosProdutos();
+        $produtos = $this->produtoService->obterTodos();
 
         return response()->json(
             ['data' => $produtos],

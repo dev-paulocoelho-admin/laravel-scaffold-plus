@@ -20,13 +20,6 @@ class {{name}}Controller extends Controller
     {
         $items = $this->{{nameCamel}}Service->obterTodos{{name}}();
 
-        if (empty($items)) {
-            return response()->json(
-                ['message' => 'Nenhum {{nameCamel}} encontrado.'],
-                Response::HTTP_NOT_FOUND
-            );
-        }
-
         return response()->json(['data' => $items], Response::HTTP_OK);
     }
 }

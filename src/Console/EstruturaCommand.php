@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace PauloCoelho\LaravelScaffoldPlus\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

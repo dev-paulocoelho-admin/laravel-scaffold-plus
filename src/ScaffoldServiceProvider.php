@@ -1,16 +1,16 @@
 <?php
 
-namespace PauloCoelho\ScaffoldPlus;
+namespace PauloCoelho\LaravelScaffoldPlus;
 
 use Illuminate\Support\ServiceProvider;
-use PauloCoelho\ScaffoldPlus\Console\MakeEstruturaCommand;
+use PauloCoelho\LaravelScaffoldPlus\Console\EstruturaCommand;
 
 class ScaffoldServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
         $this->commands([
-            MakeEstruturaCommand::class,
+            \PauloCoelho\LaravelScaffoldPlus\Console\EstruturaCommand::class,
         ]);
     }
 

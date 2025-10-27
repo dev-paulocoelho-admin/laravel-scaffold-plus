@@ -124,7 +124,7 @@ class EstruturaCommand extends Command
      */
     protected function createFromStub(string $stubName, string $destPath, array $replacements): void
     {
-        $stubPath = base_path("stubs/estrutura/$stubName");
+        $stubPath = __DIR__ . '/../stubs/' . $stubName;
         if (!$this->files->exists($stubPath)) {
             $this->error("Stub $stubName não encontrado em stubs/estrutura");
             Log::error("Stub $stubName não encontrado em stubs/estrutura");

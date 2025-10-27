@@ -10,8 +10,8 @@ use Illuminate\Support\Str;
 
 class EstruturaCommand extends Command
 {
-    protected string $signature = 'make:estrutura {name : Nome da entidade, ex: Produto ou Cadastro/Produto}';
-    protected string $description = 'Gera estrutura de desenvolvimento.';
+    protected $signature = 'make:estrutura {name : Nome da entidade, ex: Produto ou Cadastro/Produto}';
+    protected $description = 'Gera estrutura de desenvolvimento.';
     protected Filesystem $files;
 
     public function __construct()

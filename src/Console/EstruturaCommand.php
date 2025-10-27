@@ -72,8 +72,11 @@ class EstruturaCommand extends Command
             Log::info("Request criado: $req");
         }
 
-        $policyPath = app_path("Policies" . ($modulePath ? "/$modulePath/$entity" : "/$entity") . "/{$entity}Policy.php");
-        $this->createFromStub('policy.stub', $policyPath, $replacements);
+        $this->call('make:policy', [
+            'name' => ($moduleNamespace ? "$moduleNamespace\\$entity" : $entity) . 'Policy',
+            '--model' => ($moduleNamespace ? "App\\Models\\$moduleNamespace\\$entity" : "App\\Models\\$entity")
+        ]);
+        $this->info("Policy criada: {$entity}Policy");
 
         $filesToGenerate = [
             'controller.stub' => app_path(

@@ -10,7 +10,7 @@
       "email": "paulomedinabr01@gmail.com"
     }
   ],
-  "require": {
+  "require-dev": {
     "php": ">=8.2",
     "illuminate/support": "^10.0 || ^11.0 || ^12.0"
   },

@@ -1,10 +1,9 @@
 # Laravel Scaffold Plus
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/paulosilva/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulosilva/laravel-scaffold-plus)
-[![License](https://img.shields.io/github/license/paulosilva/laravel-scaffold-plus.svg?style=flat-square)](LICENSE)
-[![Tests](https://img.shields.io/github/workflow/status/paulosilva/laravel-scaffold-plus/run-tests?style=flat-square)](https://github.com/paulosilva/laravel-scaffold-plus/actions)
-[![PHP Version](https://img.shields.io/packagist/php-v/paulosilva/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulosilva/laravel-scaffold-plus)
-[![Versão/Tag](https://img.shields.io/github/v/tag/paulosilva/laravel-scaffold-plus?style=flat-square)](https://github.com/paulosilva/laravel-scaffold-plus/tags)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulocoelho/laravel-scaffold-plus)
+[![License](https://img.shields.io/github/license/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](LICENSE)
+[![PHP Version](https://img.shields.io/packagist/php-v/paulocoelho/laravel-scaffold-plus.svg?style=flat-square)](https://packagist.org/packages/paulocoelho/laravel-scaffold-plus)
+[![Versão/Tag](https://img.shields.io/github/v/tag/paulocoelho/laravel-scaffold-plus?style=flat-square)](https://github.com/paulocoelho/laravel-scaffold-plus/tags)
 
 ## 🚀 Laravel Scaffold Plus
 
@@ -156,7 +155,7 @@ Utilize, modifique e distribua livremente.
 
 ### 🔗 Links
 
-- [📦 Packagist](https://packagist.org/packages/paulosilva/laravel-scaffold-plus)
-- [🐙 GitHub](https://github.com/paulosilva/laravel-scaffold-plus)
-- [✉️ Gmail](mailto:paulocoelho@gmail.com)
-- [💼 LinkedIn](https://www.linkedin.com/in/paulocoelho)
+- [📦 Packagist](https://packagist.org/packages/paulocoelho/laravel-scaffold-plus)
+- [🐙 GitHub](https://github.com/dev-paulocoelho-admin/laravel-scaffold-plus)
+- [✉️ Gmail](mailto:paulomedinabr01@gmail.com)
+- [💼 LinkedIn](https://www.linkedin.com/in/paulohcoelho/)

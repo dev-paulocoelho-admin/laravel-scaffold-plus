@@ -14,13 +14,11 @@ criados com exemplos de uso e injeção de dependência já configurados.
 
 Ideal para acelerar estudos e projetos particulares.
 
-## 📦 Instalação
+## 📦 Instalação - Dependencia de desenvolvimento
 
 ```bash
-  composer require paulocoelho/laravel-scaffold-plus
+  composer require --dev paulocoelho/laravel-scaffold-plus:dev-main
 ```
-
-### O ServiceProvider será registrado automaticamente via Package Discovery do Laravel.
 
 ## ⚡ Uso
 
@@ -33,7 +31,7 @@ Para gerar a estrutura de uma entidade, execute:
 Exemplo com submódulo:
 
 ```bash
-    php artisan make:estrutura Cadastro/Produto
+  php artisan make:estrutura Cadastro/Produto
 ```
 
 ## 🧱 Estrutura Gerada
@@ -101,14 +99,14 @@ class ProdutoController extends Controller
         $this->produtoService = $produtoService;
     }
 
-    public function obterTodos(): JsonResponse
+    /**
+     * Exibe uma lista de recursos.
+     */
+    public function index(): JsonResponse
     {
-        $produtos = $this->produtoService->obterTodos();
+        $items = $this->produtoService->index();
 
-        return response()->json(
-            ['data' => $produtos],
-            Response::HTTP_OK
-        );
+        return response()->json(['data' => $items], Response::HTTP_OK);
     }
 }
 ```
@@ -145,7 +143,7 @@ Execute os testes com o comando:
   vendor/bin/phpunit
 ```
 
-### 📜 Licença Este projeto é open-source sob a licença MIT.
+### 📜 Licença: Este projeto é open-source sob a licença MIT.
 
 Utilize, modifique e distribua livremente.
 
